@@ -1,0 +1,57 @@
+// calendar
+.calendar {
+	width: 35%;
+	padding-left: 10px;
+}
+.calendar-header {
+	.space-around ();
+}
+.show-date {
+	border: 1px solid @colorDashboatText;
+	width: 118px;
+	height: 34px;
+	margin-top: 10px;
+	border-radius: 5px;
+	background-color: @colorWhite;
+	position: relative;
+	&:before {
+		position: absolute;
+		content: " ";
+		background-image: url(../img/icon-calendar.png);
+		width: 16px;
+		height: 17px;
+		top: 7px;
+    	left: 7px;
+	}
+}
+// form
+.form {
+	input {
+		height: 30px;
+		.input-style ();
+	}
+}
+.user-comment {
+	height: 75px;
+	.input-style ();
+}
+.checkbox,
+.radio {
+	display: inline-block;
+}
+.submit {
+	display: inline-block;
+	cursor: pointer;
+	width: 70px;
+	height: 30px;
+	background-color: @colorHeader;
+	border-radius: 5px;
+	padding: 5px;
+	&:hover {
+		background-color: @colorHover;
+	}
+}
+.submit-wrap {
+	width: 100%;
+	.space-around ();
+}

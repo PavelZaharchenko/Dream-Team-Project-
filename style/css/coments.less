@@ -1,0 +1,81 @@
+// comments
+.comments {
+	width: 65%;
+}
+.comments-header{
+	border-bottom: 1px solid @colorDashboatText;
+}
+.coments-item {
+	padding: 10px;
+	&:first-child {
+		border-bottom: 1px solid @colorDashboatText;
+	}
+}
+.comments-title {
+	padding: 20px;
+	font-size: 18px;
+}
+.profile-wrap {
+	.flex-start ();
+}
+.profile-photo__online {
+	position: relative;
+	width: 65px;
+	height: 65px;
+// online
+	&:after{
+		position: absolute;
+		content: " ";
+		width: 16px;
+		height: 18px;
+		display: block;
+		background-image: url(../img/online.png);
+		top: 0px;
+		left: 0px;
+	}
+}
+.info-wrap {
+    padding: 15px;
+}
+.profile-title {
+	font-size: 18px;
+	color: @colorBlue;
+}
+.profile-text {
+	color: @colorDashboatText;
+}
+.ip-wrap {
+	margin: 18px 0 0 240px;
+	display: flex;
+}
+.ip{
+	margin-top: 20px;
+	font-size: 12px;
+	span {
+		color: @colorDashboatText;
+		text-transform: uppercase;
+	}
+}
+.reply-button {
+	cursor: pointer;
+	margin-left: 5px;
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	background-image: url(../img/slice111.png);
+	border: 1px solid @colorDashboatText;
+	border-radius: 5px;
+}
+.dialog {
+	margin-top: 20px;
+    margin-left: 80px;
+    padding: 15px;
+    background-color: @colorWhite;
+    border-radius: 5px;
+    border-bottom: 1px solid @colorDashboatText;
+}
+.answer {
+	.profile-wrap {
+		flex-directions: row-reverse;
+	}
+}

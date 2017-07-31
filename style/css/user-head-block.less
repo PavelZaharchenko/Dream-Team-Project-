@@ -1,0 +1,98 @@
+// user-head-block
+.header-page {
+	background-color: @colorHeader;
+    display: flex;
+    justify-content: space-between;
+	padding: 20px;
+	border-top: 1px solid @colorHeaderBorder;
+}
+.men-wrapper {
+	width: 250px;
+	.space-around ();
+}
+.men-info {
+	margin: auto;
+}
+.men-name {
+	position: relative;
+	&:after{
+		position: absolute;
+		content: "";
+		width: 12px;
+		height: 15px;
+		background: url(../img/arrow.png);
+		left: 135px;
+
+	}
+}
+.men-logo {
+	margin-top: 5px;
+	font-size: 12px;
+	color: @colorWhite;
+}
+.user-info {
+	.space-between ();
+	li{
+		margin: auto;
+		padding-left: 30px;
+		&:not(:last-child) {
+			padding-right: 30px;
+			border-right: 1px solid @colorGrey;
+		}
+	}
+	p{
+		margin-top: 5px;
+		color: @colorWhite;
+		font-size: 21px;
+	}
+}
+.visits,
+.balanse {
+	.space-between ();
+}
+.visits-wrap,
+.balanse-wrap {
+	margin-right: 20px;
+}
+.title-user {
+	position: relative;
+	&:after {
+		position: absolute;
+	    content: "+14";
+	    font-size: 12px;
+	    color: #ffffff;
+	    border-radius: 10px;
+	    padding: 3px;
+	    background-color: @colorOrange;
+	    left: 35px;
+	    bottom: 10px;
+	}
+}
+.title-order {
+	position: relative;
+	&:after {
+		position: absolute;
+	    content: "+27";
+	    font-size: 12px;
+	    color: #ffffff;
+	    border-radius: 10px;
+	    padding: 3px;
+	    background-color: @colorOrange;
+	    left: 35px;
+	    bottom: 10px;
+	}
+}
+.visits-wrap {
+	position: relative;
+	&:after {
+		position: absolute;
+	    content: "+109";
+	    font-size: 12px;
+	    color: #ffffff;
+	    border-radius: 10px;
+	    padding: 3px;
+	    background-color: @colorOrange;
+	    left: 35px;
+	    bottom: 35px;
+	}
+}
