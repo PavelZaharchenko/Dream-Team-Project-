@@ -6,6 +6,8 @@
 	<title>Novus</title>
 	<link rel="stylesheet" type="text/css" href="style/css/reset.css">
 	<link rel="stylesheet" href="style/css/style.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 	<div class="conteiner">
@@ -121,19 +123,33 @@
 <!--schedule -->
 				<section class="schedule">
 					<ul class="schedule-list">
-						<li class="schedule-item active">Visitors Statistic</li>
-						<li class="schedule-item">Orders Statistic</li>
-						<li class="schedule-item">Users Statistic</li>
+						<li class="schedule-item" data-number="1">Visitors Statistic</li>
+						<li class="schedule-item" data-number="2">Orders Statistic</li>
+						<li class="schedule-item" data-number="3">Users Statistic</li>
 					</ul>
-					<div class="schedule-wrap">
-						<div class="schedule-info">
-							<h1 class="info-title">Today’s visitors</h1>
-							<p class="info-time">5:23 pm</p>
-							<p class="info-balance">16,481</p>
-						</div>
-<!--schedule-img -->
-						<img src="style/img/schedule.png">
-					</div>
+					<ul class="tab-content">
+				        <li class="tab-content__item active" data-number="1">
+				            <div class="schedule-wrap">
+								<div class="schedule-info">
+									<h1 class="info-title">Today’s visitors</h1>
+									<p class="info-time">5:23 pm</p>
+									<p class="info-balance">16,481</p>
+								</div>
+	<!--schedule-chart -->
+								<div id="chart_div"></div>
+							</div>
+				        </li>
+			        	<li class="tab-content__item" data-number="2">
+			        		<p>	
+			        			Hi Bro
+			        		</p>
+			        	</li>
+			        	<li class="tab-content__item" data-number="3">
+			            	<p>
+			            		It's my bro=)
+			            	</p>
+			        	</li>
+			    	</ul>
 				</section>
 				<div class="dynamic-block">
 <!--Comments -->
@@ -196,11 +212,12 @@
 					<section class="calendar">
 						<div class="calendar-header">
 							<h1 class="comments-title">Calendar</h1>
-							<div class="show-date"></div>
+<!-- datepicker	 -->						
+							<input class="show-date" type="text" id="datepicker"></input>
 						</div>
 						<div class="calendar-main">
 							<div class="calendar-table">
-								<img src="style/img/table-bg.png">
+								<!-- <img src="style/img/table-bg.png"> -->
 							</div>
 						</div>
 <!-- form -->
@@ -215,5 +232,26 @@
 			</div>
 		</main>
 	</div>
+
+<!-- 	scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function() {
+
+			tabControl('.schedule-item', '.tab-content__item');
+
+			function tabControl(tabNav, tabContent) {
+				$(tabNav).on('click', function() {
+				var currentTabNumber = $(this).attr('data-number');
+				$(tabContent).removeClass('active');
+				$(tabContent).eq(currentTabNumber - 1).addClass('active');
+				    })
+				}
+
+				$( "#datepicker" ).datepicker();
+			});
+	</script>
+	<script type="text/javascript" src="style/js/line-chart.js"></script>
 </body>
 </html>

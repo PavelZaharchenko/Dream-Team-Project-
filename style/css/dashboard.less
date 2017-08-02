@@ -60,6 +60,9 @@
     }
 }
 // schedule-menu
+.schedule {
+	display: block;
+}
 .schedule-list {
 	background-color: @colorDashboat;
 	width: 100%;
@@ -75,12 +78,33 @@
 	font-size: 14px;
 	padding: 20px;
 	border-right: 1px solid @colorDashboatText;
+	cursor: pointer;
+	.active {
+		background-color: @colorWhite;
+	}
+}
+.tab-content {
+	position: relative;
+	background-color: @colorWhite;
+	.active{
+		display: block;
+	}
+}
+.tab-content__item {
+	display: none;
+	min-height: 200px;
+	p{
+		text-align: center;
+	}
 }
 .schedule-wrap {
 	.space-around ();
     background-color: @colorWhite;
     padding: 20px;
     border-bottom: 1px solid @colorDashboatText;
+}
+.schedule-info {
+	padding-top: 30px;
 }
 .info-title {
 	font-size: 14px;

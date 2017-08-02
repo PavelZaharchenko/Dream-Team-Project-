@@ -247,6 +247,9 @@
 .icons-hexagon img {
   cursor: pointer;
 }
+.schedule {
+  display: block;
+}
 .schedule-list {
   background-color: #f1f1f1;
   width: 100%;
@@ -267,6 +270,24 @@
   font-size: 14px;
   padding: 20px;
   border-right: 1px solid #b5b5b5;
+  cursor: pointer;
+}
+.schedule-item .active {
+  background-color: #ffffff;
+}
+.tab-content {
+  position: relative;
+  background-color: #ffffff;
+}
+.tab-content .active {
+  display: block;
+}
+.tab-content__item {
+  display: none;
+  min-height: 200px;
+}
+.tab-content__item p {
+  text-align: center;
 }
 .schedule-wrap {
   display: -webkit-box;
@@ -277,6 +298,9 @@
   background-color: #ffffff;
   padding: 20px;
   border-bottom: 1px solid #b5b5b5;
+}
+.schedule-info {
+  padding-top: 30px;
 }
 .info-title {
   font-size: 14px;
