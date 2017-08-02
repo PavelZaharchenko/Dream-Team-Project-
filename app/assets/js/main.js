@@ -4,6 +4,7 @@ class App {
     }
 
     init() {
+        this.commentsBox = new CommentsBox;
         this.tabController('.schedule-item', '.tab-content__item');
         this.addNewComment();
     }
@@ -24,17 +25,9 @@ class App {
         $('.submit').on('click', () => {
             let userName = $('.user-input').val();
             let commentText = $('.user-comment').val();
-
-
             let newComment = new UserComment(userName, commentText);
 
-            let arr = new CommentsBox;
-
-            arr.push(newComment);
-
-            // arr.save();
-
-
+            this.commentsBox.push(newComment);
 
             // Clear inputs
             $('.form input, .form textarea').val('');
@@ -52,11 +45,10 @@ class CommentsBox extends Array {
     push(comment) {
         super.push(comment);
 		this.renderComment(comment);
-		// this.save();
+		this.save();
     }
 
     save() {
-        // console.log(this);
         localStorage.setItem('comments', JSON.stringify(this));
     }
 
@@ -81,32 +73,4 @@ class UserComment {
     }
 }
 
-
-
 $(() => {new App;});
-
-
-
-// .user-input - name
-// .user-comment 
-// .submit
-
-
-
-
-
-
-/* $(function() {
-
-tabControl('.schedule-item', '.tab-content__item');
-
-function tabControl(tabNav, tabContent) {
-    $(tabNav).on('click', function() {
-    var currentTabNumber = $(this).attr('data-number');
-    $(tabContent).removeClass('active');
-    $(tabContent).eq(currentTabNumber - 1).addClass('active');
-        })
-    }
-
-    $( "#datepicker" ).datepicker();
-}); */
