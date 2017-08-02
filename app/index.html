@@ -4,10 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Novus</title>
-	<link rel="stylesheet" type="text/css" href="style/css/reset.css">
-	<link rel="stylesheet" href="style/css/style.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<link rel="stylesheet" href="../dist/css/style.css">
 </head>
 <body>
 	<div class="conteiner">
@@ -25,7 +23,7 @@
 		</div>
 		<header class="header-page">
 			<div class="men-wrapper">
-				<img class="men-photo" src="style/img/bond.png">
+				<img class="men-photo" src="assets/img/bond.png">
 				<div class="men-info">
 					<h1 class="men-name">Michael Williams</h1>
 					<p class="men-logo">@mwilliams</p>
@@ -45,14 +43,14 @@
 						<h1 class="title-visit">Visits</h1>
 						<p>749</p>
 					</div>
-					<img src="style/img/graph.png">
+					<img src="assets/img/graph.png">
 				</li>
 				<li class="balanse">
 					<div class="balanse-wrap">
 						<h1 class="title-balans">Balanse</h1>
 						<p>$26.425</p>
 					</div>
-					<img src="style/img/graph1.png">
+					<img src="assets/img/graph1.png">
 				</li>
 			</ul>
 		</header>
@@ -60,31 +58,31 @@
 			<aside class="sitebar">
 				<ul class="siteban-nav">
 					<li class="item1">
-						<img src="style/img/sidebar_man.png">
+						<img src="assets/img/sidebar_man.png">
 						<p>Dashboard</p>
 					</li>
 					<li class="item2 active">
-						<img src="style/img/sidbar_gear.png">
+						<img src="assets/img/sidbar_gear.png">
 						<p>UI Elements</p>
 					</li>
 					<li class="item3">
-						<img src="style/img/sidebar_burger.png">
+						<img src="assets/img/sidebar_burger.png">
 						<p>Form Stuff</p>
 					</li>
 					<li class="item4">
-						<img src="style/img/sidebar_message.png">
+						<img src="assets/img/sidebar_message.png">
 						<p>Messages</p>
 					</li>
 					<li class="item5">
-						<img src="style/img/sidebar_staticks.png">
+						<img src="assets/img/sidebar_staticks.png">
 						<p>Statistics</p>
 					</li>
 					<li class="item6">
-						<img src="style/img/sidebar_tables.png">
+						<img src="assets/img/sidebar_tables.png">
 						<p>Tables</p>
 					</li>
 					<li class="item7">
-						<img src="style/img/sidebar_other.png">
+						<img src="assets/img/sidebar_other.png">
 						<p>Other Pages</p>
 					</li>
 				</ul>
@@ -97,54 +95,54 @@
 					</div>
 					<ul class="dashboat-nav">
 						<li class="nav-item1">
-							<img src="style/img/icon_cube.png">
+							<img src="assets/img/icon_cube.png">
 							<p class="active">Quick Menu Actions</p>
 						</li>
 						<li class="nav-item2">
-							<img src="style/img/icon_grafic.png">
+							<img src="assets/img/icon_grafic.png">
 							<p>Web Site Statistics</p>
 						</li>
 						<li class="nav-item3">
-							<img src="style/img/icon_calendar.png">
+							<img src="assets/img/icon_calendar.png">
 							<p>Web Site Statistics</p>
 						</li>
 					</ul>
 				</div>
 <!-- hexagon -->
 				<section class="icons-hexagon">
-					<img src="style/img/slice-6.png">
-					<img src="style/img/slice-7.png">
-					<img src="style/img/slice-8.png">
-					<img src="style/img/slice-9.png">
-					<img src="style/img/slice-10.png">
-					<img src="style/img/slice-11.png">
-<!-- 					<p class="hint">Layout Settings</p> -->
+					<img src="assets/img/slice-6.png">
+					<img src="assets/img/slice-7.png">
+					<img src="assets/img/slice-8.png">
+					<img src="assets/img/slice-9.png">
+					<img src="assets/img/slice-10.png">
+					<img src="assets/img/slice-11.png">
+					<!-- <p class="hint">Layout Settings</p> -->
 				</section>
-<!--schedule -->
+				<!--schedule -->
 				<section class="schedule">
 					<ul class="schedule-list">
-						<li class="schedule-item" data-number="1">Visitors Statistic</li>
-						<li class="schedule-item" data-number="2">Orders Statistic</li>
-						<li class="schedule-item" data-number="3">Users Statistic</li>
+						<li class="schedule-item" data-num="1">Visitors Statistic</li>
+						<li class="schedule-item" data-num="2">Orders Statistic</li>
+						<li class="schedule-item" data-num="3">Users Statistic</li>
 					</ul>
 					<ul class="tab-content">
-				        <li class="tab-content__item active" data-number="1">
+				        <li class="tab-content__item active" data-num="1">
 				            <div class="schedule-wrap">
 								<div class="schedule-info">
 									<h1 class="info-title">Today’s visitors</h1>
 									<p class="info-time">5:23 pm</p>
 									<p class="info-balance">16,481</p>
 								</div>
-	<!--schedule-chart -->
+								<!--schedule-chart -->
 								<div id="chart_div"></div>
 							</div>
 				        </li>
-			        	<li class="tab-content__item" data-number="2">
+			        	<li class="tab-content__item" data-num="2">
 			        		<p>	
 			        			Hi Bro
 			        		</p>
 			        	</li>
-			        	<li class="tab-content__item" data-number="3">
+			        	<li class="tab-content__item" data-num="3">
 			            	<p>
 			            		It's my bro=)
 			            	</p>
@@ -152,34 +150,17 @@
 			    	</ul>
 				</section>
 				<div class="dynamic-block">
-<!--Comments -->
+					<!--Comments -->
 					<section class="comments">
 						<div class="comments-header">
 							<h1 class="comments-title">Recent Comments</h1>
 						</div>
 						<ul class="comments-list">
-							<li class="coments-item">
+							  
+							<!-- <li class="coments-item">
 								<div class="profile-wrap">
 									<div class="profile-icon">
-										<img class="profile-photo__online" src="style/img/john-stone.png">
-										<div class="info-wrap">
-											<h1 class="profile-title">John Stone</h1>
-											<p class="profile-text">3 hours ago</p>
-										</div>
-									</div>
-									<div class="ip-wrap">
-										<p class="ip"><span>IP:</span> 172.10.56.3</p>
-										<a class="reply-button"></a>
-									</div>
-								</div>
-								<p class="dialog">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
-								</p>
-							</li>
-							<li class="coments-item">
-								<div class="profile-wrap">
-									<div class="profile-icon">
-										<img class="profile-photo__online" src="style/img/Anna-Anderson.png">
+										<img class="profile-photo__online" src="assets/img/Anna-Anderson.png">
 										<div class="info-wrap">
 											<h1 class="profile-title">Anna Anderson</h1>
 											<p class="profile-text">6 hours ago</p>
@@ -197,7 +178,7 @@
 							<li class="coments-item answer">
 								<div class="profile-wrap">
 									<div class="profile-icon">
-										<img class="profile-photo__online" src="style/img/John.png">
+										<img class="profile-photo__online" src="assets/img/John.png">
 										<div class="info-wrap">
 											<h1 class="profile-title">jnny Bravo</h1>
 											<p class="profile-text">6 hours ago</p>
@@ -211,27 +192,38 @@
 								<p class="dialog">
 									Sed ut perspiciatis unde omnis iste natus error sit voluptatem. 
 								</p>
-							</li>
+							</li> -->
 						</ul>
 					</section>
-<!-- calendar -->
+					<!-- calendar -->
 					<section class="calendar">
 						<div class="calendar-header">
 							<h1 class="comments-title">Calendar</h1>
-<!-- datepicker	 -->						
+							<!-- datepicker	 -->						
 							<input class="show-date" type="text" id="datepicker"></input>
 						</div>
 						<div class="calendar-main">
 							<div class="calendar-table">
-								<!-- <img src="style/img/table-bg.png"> -->
+								<!-- <img src="assets/img/table-bg.png"> -->
 							</div>
 						</div>
-<!-- form -->
+					<!-- form -->
 					<div class="form">	
-						<input class="user-input" type="text" name="usual-input-field" placeholder="Usual input field">
-						<input class="user-input__uploader" type="text" name="single-file-uploader" placeholder="Single file uploader">
-						<textarea class="user-comment" name="comment" placeholder="Usual text area"></textarea>
-						<button type="submit" class="submit">Submit</button>
+						<input class="user-input"
+							   type="text"
+							   placeholder="Enter your name">
+
+						<!-- <input class="user-input__uploader"
+							   type="text"
+							   name="single-file-uploader"
+							   placeholder="Single file uploader"> -->
+
+						<textarea class="user-comment"
+						          placeholder="Enter comment">
+						
+						</textarea>
+
+						<button class="submit">Add comment</button>
 					</div>
 					</section>
 				</div>
@@ -239,25 +231,31 @@
 		</main>
 	</div>
 
+	<script id="template-comment" type="text/template">
+		<li class="coments-item">
+			<div class="profile-wrap">
+				<div class="profile-icon">
+					<img class="profile-photo__online" src="assets/img/john-stone.png">
+					<div class="info-wrap">
+						<h1 class="profile-title"><%= userName %></h1>
+						<p class="profile-text"><%= commentTime %></p>
+					</div>
+				</div>
+				<div class="ip-wrap">
+					<a class="reply-button"></a>
+				</div>
+			</div>
+			<p class="dialog"><%=  commentText %></p>
+		</li>
+	</script>
+
 <!-- 	scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		$(function() {
-
-			tabControl('.schedule-item', '.tab-content__item');
-
-			function tabControl(tabNav, tabContent) {
-				$(tabNav).on('click', function() {
-				var currentTabNumber = $(this).attr('data-number');
-				$(tabContent).removeClass('active');
-				$(tabContent).eq(currentTabNumber - 1).addClass('active');
-				    })
-				}
-
-				$( "#datepicker" ).datepicker();
-			});
-	</script>
-	<script type="text/javascript" src="style/js/line-chart.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="assets/js/line-chart.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
