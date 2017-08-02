@@ -16,14 +16,20 @@
 	font-size: 18px;
 }
 .profile-wrap {
-	.flex-start ();
+	.space-between ();
+}
+// .profile-wrap__reverse{
+// 	flex-derection: row-reverse;
+// }
+.profile-icon {
+	.space-between ();
 }
 .profile-photo__online {
 	position: relative;
 	width: 65px;
 	height: 65px;
 // online
-	&:after{
+	&:after {
 		position: absolute;
 		content: " ";
 		width: 16px;
@@ -45,7 +51,7 @@
 	color: @colorDashboatText;
 }
 .ip-wrap {
-	margin: 18px 0 0 240px;
+	margin: 18px 0 0 0;
 	display: flex;
 }
 .ip{
