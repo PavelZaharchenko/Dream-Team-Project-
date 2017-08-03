@@ -223,7 +223,8 @@
 						
 						</textarea>
 
-						<button class="submit">Add comment</button>
+						<button class="submit submit--comment">Add comment</button>
+						<button class="submit submit--reply hide">Add reply</button>
 					</div>
 					</section>
 				</div>
@@ -232,13 +233,13 @@
 	</div>
 
 	<script id="template-comment" type="text/template">
-		<li class="coments-item">
+		<li class="coments-item" data-id="<%= !isReply ? id : 'reply' %>">
 			<div class="profile-wrap">
 				<div class="profile-icon">
 					<img class="profile-photo__online" src="assets/img/john-stone.png">
 					<div class="info-wrap">
 						<h1 class="profile-title"><%= userName %></h1>
-						<p class="profile-text"><%= commentTime %></p>
+						<p class="profile-text"><%= commentTime.slice(0, -3) %></p>
 					</div>
 				</div>
 				<div class="ip-wrap">
