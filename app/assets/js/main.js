@@ -1,7 +1,5 @@
 class App {
-    constructor() {
-        this.init();
-    }
+    constructor() {this.init()}
 
     init() {
         this.commentsBox = new CommentsBox;
@@ -25,10 +23,7 @@ class App {
 
     addNewComment() {
         $('.submit--comment').on('click', () => {
-            let userName = $('.user-input').val();
-            let commentText = $('.user-comment').val();
-            let newComment = new UserComment(userName, commentText, this.idGenerate());
-            this.commentsBox.push(newComment);
+            this.createCommentObject(this.idGenerate());
 
             // Clear inputs
             $('.form input, .form textarea').val('');
@@ -36,8 +31,8 @@ class App {
     }
 
     startCommentReply() {
-        $('.comments-list').on('click', '.reply-button', e => {
-            this.parentCommentId = $(e.target).parents('.coments-item').attr('data-id');
+        $('.comments-list').on('click', '.comment__reply', e => {
+            this.parentCommentId = $(e.target).parents('.comment').attr('data-id');
 
             // TODO: менять кнопки под формой
             $('.submit--comment').addClass('hide');
@@ -46,12 +41,20 @@ class App {
     }
 
     addCommentReply() {
-        $('.submit--reply').on('click', () => {
-            let userName = $('.user-input').val();
-            let commentText = $('.user-comment').val();
-            let newComment = new UserComment(userName, commentText, this.parentCommentId, true);
+        $('.submit--reply').on('click', () => this.createCommentObject(this.parentCommentId, true));
+    }
+
+    createCommentObject(id, isReply) {
+        let userName = $('.user-input').val().trim();
+        let commentText = $('.user-comment').val().trim();
+        
+        if (userName && commentText) {
+            let newComment = new UserComment(userName, commentText, id, isReply);
             this.commentsBox.push(newComment);
-        });
+            $('.form').removeClass('error');
+        } else {
+            $('.form').addClass('error');
+        }
     }
 
     idGenerate() {
@@ -97,14 +100,13 @@ class CommentsBox extends Array {
             replys
                 .sort((a, b) => a.commentTime < b.commentTime)
                 .forEach(reply => {
-                    if ((comment.id === reply.id) && reply.isReply) {
+                    if (comment.id === reply.id) {
                         const newElement = compiled(reply);
-                        $(`.coments-item[data-id="${comment.id}"]`).after(newElement);
+                        console.log('work')
+                        $(`.comment[data-id="${comment.id}"]`).after(newElement);
                     };
                 })
         });
-
-
     }
 }
 

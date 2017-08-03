@@ -156,43 +156,7 @@
 							<h1 class="comments-title">Recent Comments</h1>
 						</div>
 						<ul class="comments-list">
-							  
-							<!-- <li class="coments-item">
-								<div class="profile-wrap">
-									<div class="profile-icon">
-										<img class="profile-photo__online" src="assets/img/Anna-Anderson.png">
-										<div class="info-wrap">
-											<h1 class="profile-title">Anna Anderson</h1>
-											<p class="profile-text">6 hours ago</p>
-										</div>
-									</div>
-									<div class="ip-wrap">
-										<p class="ip"><span>IP:</span> 172.10.56.3</p>
-										<a class="reply-button"></a>
-									</div>
-								</div>
-								<p class="dialog">
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-								</p>
-							</li>
-							<li class="coments-item answer">
-								<div class="profile-wrap">
-									<div class="profile-icon">
-										<img class="profile-photo__online" src="assets/img/John.png">
-										<div class="info-wrap">
-											<h1 class="profile-title">jnny Bravo</h1>
-											<p class="profile-text">6 hours ago</p>
-										</div>
-									</div>
-									<div class="ip-wrap">
-										<p class="ip"><span>IP:</span> 172.10.56.3</p>
-										<a class="reply-button"></a>
-									</div>
-								</div>
-								<p class="dialog">
-									Sed ut perspiciatis unde omnis iste natus error sit voluptatem. 
-								</p>
-							</li> -->
+							
 						</ul>
 					</section>
 					<!-- calendar -->
@@ -208,20 +172,13 @@
 							</div>
 						</div>
 					<!-- form -->
-					<div class="form">	
+					<div class="form">
+						<div class="error-msg">Заполните форму</div>
 						<input class="user-input"
 							   type="text"
 							   placeholder="Enter your name">
 
-						<!-- <input class="user-input__uploader"
-							   type="text"
-							   name="single-file-uploader"
-							   placeholder="Single file uploader"> -->
-
-						<textarea class="user-comment"
-						          placeholder="Enter comment">
-						
-						</textarea>
+						<textarea class="user-comment" placeholder="Enter comment"></textarea>
 
 						<button class="submit submit--comment">Add comment</button>
 						<button class="submit submit--reply hide">Add reply</button>
@@ -233,20 +190,17 @@
 	</div>
 
 	<script id="template-comment" type="text/template">
-		<li class="coments-item" data-id="<%= !isReply ? id : 'reply' %>">
-			<div class="profile-wrap">
-				<div class="profile-icon">
-					<img class="profile-photo__online" src="assets/img/john-stone.png">
-					<div class="info-wrap">
-						<h1 class="profile-title"><%= userName %></h1>
-						<p class="profile-text"><%= commentTime.slice(0, -3) %></p>
-					</div>
+		<li class="comment <%= isReply ? 'reply-mod' : '' %>" data-id="<%= !isReply ? id : 'reply' %>">
+			<header class="comment__header">
+				<div class="comment__info">
+					<h1 class="comment__user-name"><%= userName %></h1>
+					<p class="comment__time"><%= commentTime.slice(0, -3) %></p>
 				</div>
-				<div class="ip-wrap">
-					<a class="reply-button"></a>
-				</div>
+				<div class="comment__reply">Reply</div>
+			</header>
+			<div class="comment__content">
+				<p class="comment__text"><%= commentText %></p>
 			</div>
-			<p class="dialog"><%=  commentText %></p>
 		</li>
 	</script>
 

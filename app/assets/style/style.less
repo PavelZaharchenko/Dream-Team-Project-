@@ -23,10 +23,126 @@
 @import url(mixins.less);
 
 
+.form {
+	position: relative;
+
+	&.error {
+		input, textarea {
+			border-color: red;
+		}
+		.error-msg {
+			display: block;
+		}
+	}
+	.error-msg {
+		color: red;
+		font-size: 12px;
+		position: absolute;
+		top: -5px;
+		left: 0;
+		display: none;
+	}
+}
+
 .submit {
 	&.hide {
 		display: none;
 	}
+}
+
+.dynamic-block {
+	padding-bottom: 30px;
+}
+// comments
+.comments {
+	width: 65%;
+}
+
+.comments-list {
+	padding: 10px 5px;
+}
+
+.comment {
+	position: relative;
+	padding: 15px;
+	border-radius: 5px;
+	background: white;
+	border: 1px solid @colorHeader;
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		right: 10px;
+		width: 20px;
+		height: 20px;
+		background: white;
+		transform: rotate(45deg);
+	}
+
+	&:before {
+		bottom: -12px;
+		border: 1px solid @colorHeader;
+	}
+
+	&:after {
+		bottom: -10px;
+  		width: 22px;
+  		height: 22px
+	}
+
+	.reply-mod & {
+		&:before, 
+		&:after {
+			right: auto;
+			left: 10px;
+		}	
+	}
+
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 15px;
+
+		.reply-mod & {
+			justify-content: flex-end;
+			text-align: right;
+		}
+	}
+
+	&__user-name {
+		color: @colorHeader;
+		font-weight: bold;
+		font-size: 24px;
+		margin-bottom: 5px;
+	}
+
+	&__time {
+		color: @colorBorderItem;
+		font-size: 12px;
+	}
+
+	&__reply {
+		padding: 5px 10px;
+		cursor: pointer;
+		color: @colorHeader;
+		border: 1px solid @colorHeader;
+		border-radius: 5px;
+
+		.reply-mod & {
+			display: none;
+		}
+	}
+
+	
 }
 
 
