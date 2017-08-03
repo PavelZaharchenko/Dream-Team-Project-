@@ -52,11 +52,11 @@ class App {
     }
 
     createCommentObject(id, reply, time) {
-        let userName = $('.user-input').val().trim();
-        let commentText = $('.user-comment').val().trim();
+        const userName = $('.user-input').val().trim();
+        const commentText = $('.user-comment').val().trim();
         
         if (userName && commentText) {
-            let newComment = new UserComment({
+            const newComment = new UserComment({
                 userName: userName,
                 commentText: commentText,
                 id: id,
@@ -75,7 +75,7 @@ class App {
     createArr(key) {
         if (localStorage.getItem(key)) {
             const jsonArr = JSON.parse(localStorage.getItem(key));
-            let newArr = new CommentsBox;
+            const newArr = new CommentsBox;
 
             jsonArr.forEach(comment => {
                 newArr.push(new UserComment({
@@ -95,10 +95,9 @@ class App {
 
     idGenerate() {
         const alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const idLenght = 16;
         let id = '';
 
-        for (var i = 0; i < idLenght; i++) {
+        for (var i = 0; i < 16; i++) {
             id += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
         }
         
@@ -123,7 +122,7 @@ class CommentsBox extends Array {
 
     renderComments() {
         const comments = _.compact(this.map(comment => !comment.isReply ? comment : ''));
-        const replys = _.compact(this.map(comment => comment.isReply ? comment : ''));
+        const replys = _.compact(this.map(comment => comment.isReply ? comment : '')).sort((a, b) => a.commentTime < b.commentTime);
         const template = $('#template-comment').html();
         const compiled = _.template(template);
 
@@ -133,14 +132,12 @@ class CommentsBox extends Array {
             const newElement = compiled(comment);
             $('.comments-list').append(newElement);
             
-            replys
-                .sort((a, b) => a.commentTime < b.commentTime)
-                .forEach(reply => {
-                    if (comment.id === reply.id) {
-                        const newElement = compiled(reply);
-                        $(`.comment[data-id="${comment.id}"]`).after(newElement);
-                    };
-                })
+            replys.forEach(reply => {
+                if (comment.id === reply.id) {
+                    const newElement = compiled(reply);
+                    $(`.comment[data-id="${comment.id}"]`).after(newElement);
+                };
+            })
         });
     }
 }
