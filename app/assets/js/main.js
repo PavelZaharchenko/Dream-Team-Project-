@@ -2,7 +2,7 @@ class App {
     constructor() {this.init()}
 
     init() {
-        this.commentsBox = new CommentsBox;
+        this.commentsBox = this.createArr('commentsArchive');
         this.tabController('.schedule-item', '.tab-content__item');
         this.addNewComment();
         this.startCommentReply();
@@ -23,10 +23,7 @@ class App {
 
     addNewComment() {
         $('.submit--comment').on('click', () => {
-            this.createCommentObject(this.idGenerate());
-
-            // Clear inputs
-            $('.form input, .form textarea').val('');
+            this.createCommentObject(this.idGenerate())
         });
     }
 
@@ -41,19 +38,55 @@ class App {
     }
 
     addCommentReply() {
-        $('.submit--reply').on('click', () => this.createCommentObject(this.parentCommentId, true));
+        $('.submit--reply').on('click', () => {
+            this.createCommentObject(this.parentCommentId, true);
+            
+            $('.submit--comment').removeClass('hide');
+            $('.submit--reply').addClass('hide');
+        });
+
+        
     }
 
-    createCommentObject(id, isReply) {
+    createCommentObject(id, reply, time) {
         let userName = $('.user-input').val().trim();
         let commentText = $('.user-comment').val().trim();
         
         if (userName && commentText) {
-            let newComment = new UserComment(userName, commentText, id, isReply);
+            let newComment = new UserComment({
+                userName: userName,
+                commentText: commentText,
+                id: id,
+                time: time,
+                reply: reply
+            });
             this.commentsBox.push(newComment);
             $('.form').removeClass('error');
         } else {
             $('.form').addClass('error');
+        }
+
+        $('.form input, .form textarea').val('');
+    }
+
+    createArr(key) {
+        if (localStorage.getItem(key)) {
+            const jsonArr = JSON.parse(localStorage.getItem(key));
+            let newArr = new CommentsBox;
+
+            jsonArr.forEach(comment => {
+                newArr.push(new UserComment({
+                    userName: comment.userName,
+                    commentText: comment.commentText,
+                    id: comment.id,
+                    time: comment.time,
+                    reply: comment.isReply
+                }))
+            });
+
+            return newArr;
+        } else {
+            return new CommentsBox;
         }
     }
 
@@ -82,7 +115,7 @@ class CommentsBox extends Array {
     }
 
     save() {
-        localStorage.setItem('comments', JSON.stringify(this));
+        localStorage.setItem('commentsArchive', JSON.stringify(this));
     }
 
     renderComments() {
@@ -102,7 +135,6 @@ class CommentsBox extends Array {
                 .forEach(reply => {
                     if (comment.id === reply.id) {
                         const newElement = compiled(reply);
-                        console.log('work')
                         $(`.comment[data-id="${comment.id}"]`).after(newElement);
                     };
                 })
@@ -111,12 +143,12 @@ class CommentsBox extends Array {
 }
 
 class UserComment {
-    constructor(userName, commentText, id, reply = false) {
-        this.userName = userName;
-        this.commentText = commentText;
-        this.id = id;
-        this.commentTime = this.getTime();
-        this.isReply = reply;
+    constructor(infoObj) {
+        this.userName = infoObj.userName;
+        this.commentText = infoObj.commentText;
+        this.id = infoObj.id;
+        this.commentTime = infoObj.time || this.getTime();
+        this.isReply = infoObj.reply;
     }
 
     getTime() {

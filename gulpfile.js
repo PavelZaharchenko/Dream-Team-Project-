@@ -12,7 +12,6 @@ gulp.task('less', () => {
     .pipe(less())
     .pipe(uglifycss())
     .pipe(gulp.dest('./dist/css'));
-    
 });
 
 gulp.watch(paths.less, ['less']);
