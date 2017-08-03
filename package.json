@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.3.0",
     "gulp-less": "^3.3.2",
-    "gulp-uglifycss": "^1.0.8"
+    "gulp-uglifycss": "^1.0.8",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1"
   }
 }

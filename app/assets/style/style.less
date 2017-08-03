@@ -73,6 +73,21 @@
 		margin-bottom: 20px;
 	}
 
+	&.reply-mod {
+		&:before, 
+		&:after {
+			bottom: auto;
+			right: auto;
+			left: 10px;
+		}
+
+		&:before {
+			top: -12px;
+		}
+		&:after {
+			top: -10px;
+		}
+	}
 	
 
 	&:before,
@@ -95,14 +110,6 @@
 		bottom: -10px;
   		width: 22px;
   		height: 22px
-	}
-
-	.reply-mod & {
-		&:before, 
-		&:after {
-			right: auto;
-			left: 10px;
-		}	
 	}
 
 
@@ -136,6 +143,11 @@
 		color: @colorHeader;
 		border: 1px solid @colorHeader;
 		border-radius: 5px;
+
+		&:hover {
+			background: @colorHeader;
+			color: white;
+		}
 
 		.reply-mod & {
 			display: none;

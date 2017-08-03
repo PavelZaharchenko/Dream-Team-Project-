@@ -1,10 +1,11 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const uglifycss = require('gulp-uglifycss');
+const imagemin = require('gulp-imagemin');
 
 let paths = {
-  less: ['./app/assets/style/style.less'],
-  js: []
+  less: './app/assets/style/style.less',
+  img: './app/assets/img/*'
 };
 
 gulp.task('less', () => {
@@ -14,6 +15,12 @@ gulp.task('less', () => {
     .pipe(gulp.dest('./dist/css'));
 });
 
+gulp.task('imagemin', () =>
+  gulp.src(paths.img)
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'))
+);
+
 gulp.watch(paths.less, ['less']);
 
-gulp.task('default', ['less']);
+gulp.task('default', ['less', 'imagemin']);

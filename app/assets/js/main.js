@@ -5,14 +5,17 @@ class App {
         this.commentsBox = this.createArr('commentsArchive');
         this.tabController('.schedule-item', '.tab-content__item');
         this.addNewComment();
-        this.startCommentReply();
+        this.initCommentReply();
         this.addCommentReply();
     }
 
     tabController(tabNavItem, tabContentItem) {
         $(tabNavItem).on('click', e => {
-            let currentTabNumber = $(e.target).attr('data-num');
+            const currentTab = $(e.target);
+            const currentTabNumber = currentTab.attr('data-num');
             
+            $(tabNavItem).removeClass('active');
+            currentTab.addClass('active');
             $(tabContentItem)
                 .removeClass('active')
                 .eq(currentTabNumber - 1)
@@ -27,7 +30,7 @@ class App {
         });
     }
 
-    startCommentReply() {
+    initCommentReply() {
         $('.comments-list').on('click', '.comment__reply', e => {
             this.parentCommentId = $(e.target).parents('.comment').attr('data-id');
 
@@ -79,7 +82,7 @@ class App {
                     userName: comment.userName,
                     commentText: comment.commentText,
                     id: comment.id,
-                    time: comment.time,
+                    time: comment.commentTime,
                     reply: comment.isReply
                 }))
             });
