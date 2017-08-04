@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "flatpickr": "^3.0.6",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-less": "^3.3.2",

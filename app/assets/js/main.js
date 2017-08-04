@@ -7,6 +7,8 @@ class App {
         this.addNewComment();
         this.initCommentReply();
         this.addCommentReply();
+        
+        $('.show-date').flatpickr();
     }
 
     tabController(tabNavItem, tabContentItem) {
@@ -121,8 +123,8 @@ class CommentsBox extends Array {
     }
 
     renderComments() {
-        const comments = _.compact(this.map(comment => !comment.isReply ? comment : ''));
-        const replys = _.compact(this.map(comment => comment.isReply ? comment : '')).sort((a, b) => a.commentTime < b.commentTime);
+        const comments = this.filter(comment => !comment.isReply);
+        const replies = this.filter(comment => comment.isReply).sort((a, b) => a.commentTime < b.commentTime);
         const template = $('#template-comment').html();
         const compiled = _.template(template);
 
@@ -132,7 +134,7 @@ class CommentsBox extends Array {
             const newElement = compiled(comment);
             $('.comments-list').append(newElement);
             
-            replys.forEach(reply => {
+            replies.forEach(reply => {
                 if (comment.id === reply.id) {
                     const newElement = compiled(reply);
                     $(`.comment[data-id="${comment.id}"]`).after(newElement);
@@ -148,7 +150,7 @@ class UserComment {
         this.commentText = infoObj.commentText;
         this.id = infoObj.id;
         this.commentTime = infoObj.time || this.getTime();
-        this.isReply = infoObj.reply;
+        this.isReply = infoObj.reply || false;
     }
 
     getTime() {
@@ -156,4 +158,4 @@ class UserComment {
     }
 }
 
-$(() => {new App;});
+$(() => {new App});
