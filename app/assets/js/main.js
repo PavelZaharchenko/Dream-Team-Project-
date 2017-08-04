@@ -53,7 +53,7 @@ class App {
         
     }
 
-    createCommentObject(id, reply, time) {
+    createCommentObject(id, isReply, time) {
         const userName = $('.user-input').val().trim();
         const commentText = $('.user-comment').val().trim();
         
@@ -62,10 +62,12 @@ class App {
                 userName: userName,
                 commentText: commentText,
                 id: id,
-                time: time,
-                reply: reply
+                commentTime: time,
+                isReply: isReply
             });
+
             this.commentsBox.push(newComment);
+            
             $('.form').removeClass('error');
         } else {
             $('.form').addClass('error');
@@ -84,8 +86,8 @@ class App {
                     userName: comment.userName,
                     commentText: comment.commentText,
                     id: comment.id,
-                    time: comment.commentTime,
-                    reply: comment.isReply
+                    commentTime: comment.commentTime,
+                    isReply: comment.isReply
                 }))
             });
 
@@ -149,8 +151,8 @@ class UserComment {
         this.userName = infoObj.userName;
         this.commentText = infoObj.commentText;
         this.id = infoObj.id;
-        this.commentTime = infoObj.time || this.getTime();
-        this.isReply = infoObj.reply || false;
+        this.commentTime = infoObj.commentTime || this.getTime();
+        this.isReply = infoObj.isReply || false;
     }
 
     getTime() {
